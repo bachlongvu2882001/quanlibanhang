@@ -96,16 +96,33 @@ class Mon{
 		~Mon();
 	    void Nhap();
 	    void Xuat(); 
-	    float getTD(){
-	  return 0;}
-	  float TOAN();
-	     float LI();
-		 float HOA();
-        float DTB(){
-	  return 0;
-		}  
+	    float getTD();
+	    float TOAN();
+	    float LI();
+		float HOA();
+        float DTB();
 };
-
+//Ham tao ham huy
+Mon::Mon(){
+	//toan - ma mon - tin chi li thuyet - tin chi thuc hanh
+	to_mmh = "TIT1";
+	to_tclt = 3;
+	to_tcth = 0;
+	//li- ma mon - tin chi li thuyet - tin chi thuc hanh
+	l_mmh = "LIT1";
+	l_tclt = 3;
+	l_tcth = 1;
+	//Hoa - ma mon - tin chi li thuyet - tin chi thuc hanh
+	h_mmh = "HIT1";
+	h_tclt = 2;
+	h_tcth = 1;	
+	//The duc - ma mon - tin chi li thuyet - tin chi thuc hanh
+	td_mmh = "TDIT1";
+	td_tclt = 0;
+	td_tcth = 1;	
+}
+Mon::~Mon(){
+}
 //Nhap cho class mon hoc
 void Mon::Nhap()
 {
@@ -129,7 +146,20 @@ void Mon::Xuat(){
 	cout<<"\nMa mon hoc_THE_DUC=  "<<td_mmh;
 	cout<<"\nDiem the duc =  "<<td<<" Tin chi li thuyet: "<<td_tclt<<" Tin chi thuc hanh: "<<td_tcth;
 }
-
+float Mon::TOAN(){
+	   return 0;
+   }
+float Mon::LI(){
+	   return 0;
+   }
+float Mon::HOA(){
+	   return 0;
+   }
+float Mon::getTD(){
+	  return 0;}
+float Mon::DTB(){
+	  return 0;
+		}  
 //************TAO CLASS LOP CHINH QUY************
 //***********************************************
 //***********************************************
@@ -150,7 +180,13 @@ class LopCQ:public Mon,public SV{ //lop chinh quy
 	     float LI();
 		 float HOA();
 };
-
+//Ham tao ham huy
+LopCQ::LopCQ(){ 
+	this->MaLop = "IT1";
+	this->TenLop="Cong Nghe Thong Tin";	
+}
+LopCQ::~LopCQ(){
+}
 //Nhap cho lop chinh quy
 void LopCQ::Nhap(){
     cout<<"\nKhoa: ";
@@ -165,6 +201,21 @@ void LopCQ::Xuat(){
     Mon::Xuat();
 	cout<<"\nDiem trung binh cua ban la:  "<<DTB();
 }
+float LopCQ::TOAN(){
+	   return this->toan;
+   }
+float LopCQ::LI(){
+	   return this->li;
+   }
+float LopCQ::HOA(){
+	   return this->hoa;
+   }
+float LopCQ::getTD(){
+	return this->td;
+}
+float LopCQ::DTB(){
+	return (toan+li+hoa)/3;
+		}  
 
 //**********TAO CLASS LOP VUA HOC VUA LAM************
 //***************************************************
